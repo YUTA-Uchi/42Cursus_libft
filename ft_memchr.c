@@ -18,14 +18,15 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	const unsigned char	*haystack;
 
 	if (s == NULL)
-		return ((void *) NULL);
+		return (NULL);
 	needle = (unsigned char)c;
 	haystack = (const unsigned char *)s;
-	while (n-- > 0)
+	while (n > 0)
 	{
 		if (*haystack == needle)
 			return ((void *)haystack);
 		haystack++;
+		n--;
 	}
 	return ((void *) NULL);
 }

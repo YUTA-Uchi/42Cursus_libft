@@ -12,6 +12,10 @@
 
 #include "libft.h"
 
+/**
+ * 1.null guard
+ * 2.traverse the last node
+ */
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (lst == NULL)

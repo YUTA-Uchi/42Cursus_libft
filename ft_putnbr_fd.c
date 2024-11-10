@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void	put_int_recursive(unsigned int num, int fd)
+static void	put_int_recursive(int num, int fd)
 {
 	if (num >= 10)
 		put_int_recursive(num / 10, fd);
@@ -21,14 +21,15 @@ static void	put_int_recursive(unsigned int num, int fd)
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	num;
-
+	if (n == INT_MIN)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		num = (unsigned int)(-n);
+		n *= -1;
 	}
-	else
-		num = (unsigned int)n;
-	put_int_recursive(num, fd);
+	put_int_recursive(n, fd);
 }

@@ -20,6 +20,8 @@ char	*ft_strdup(const char *s)
 	if (s == NULL)
 		return (NULL);
 	len = ft_strlen(s);
+	if (len == SIZE_MAX)
+		return (NULL);
 	ret = (char *)ft_calloc(len + 1, sizeof(char));
 	if (ret == NULL)
 		return (NULL);

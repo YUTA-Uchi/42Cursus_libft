@@ -20,9 +20,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	if (s1 == NULL && s2 == NULL)
 		return (0);
 	else if (s1 == NULL)
-		return (-(int)*(const unsigned char *)s2);
+		return (-1 * *(const unsigned char *)s2);
 	else if (s2 == NULL)
-		return ((int)*(const unsigned char *)s1);
+		return (*(const unsigned char *)s1);
 	uc1 = (const unsigned char *)s1;
 	uc2 = (const unsigned char *)s2;
 	while (n > 0)

@@ -17,8 +17,7 @@ static int	ft_isupper(int c)
 
 int	ft_tolower(int c)
 {
-	if (0 <= c && c <= 255)
-		if (ft_isupper(c))
-			return (c + ('a' - 'A'));
+	if (ft_isupper(c))
+		return (c + ('a' - 'A'));
 	return (c);
 }

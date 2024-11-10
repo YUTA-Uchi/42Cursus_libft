@@ -26,6 +26,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	while (result[index])
 	{
 		result[index] = f(index, result[index]);
+		if (index == UINT_MAX)
+			return (NULL);
 		index++;
 	}
 	return (result);

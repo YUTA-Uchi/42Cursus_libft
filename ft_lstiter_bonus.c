@@ -12,6 +12,10 @@
 
 #include "libft.h"
 
+/**
+ * 1.null guard
+ * 2.traverse to the last node and apply func(f)
+ */
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	if (lst == NULL || f == NULL)

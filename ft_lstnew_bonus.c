@@ -12,14 +12,18 @@
 
 #include "libft.h"
 
+/**
+ * 1.allocate for new node
+ * 2.set data to new node
+ */
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*newlst;
+	t_list	*newnode;
 
-	newlst = (t_list *)malloc(sizeof(t_list));
-	if (newlst == NULL)
+	newnode = (t_list *)malloc(sizeof(t_list));
+	if (newnode == NULL)
 		return (NULL);
-	newlst->content = content;
-	newlst->next = NULL;
-	return (newlst);
+	newnode->content = content;
+	newnode->next = NULL;
+	return (newnode);
 }

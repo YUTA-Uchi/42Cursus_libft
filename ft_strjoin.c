@@ -22,6 +22,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	s1_len = ft_strlen(s1);
 	s2_len = ft_strlen(s2);
+	if (s1_len == SIZE_MAX || s2_len == SIZE_MAX
+		|| s1_len + s2_len == SIZE_MAX)
+		return (NULL);
 	result = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
 	if (result == NULL)
 		return (NULL);

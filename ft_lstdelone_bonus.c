@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/**
+ * 1.null guard
+ * 2.apply func(del) to the content of node
+ * 3.free node itself
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (lst == NULL || del == NULL)

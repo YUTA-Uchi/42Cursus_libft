@@ -12,6 +12,9 @@
 
 #include "libft.h"
 
+/**
+ * 1.traverse the last node and count the num of nodes
+ */
 int	ft_lstsize(t_list *lst)
 {
 	int	size;

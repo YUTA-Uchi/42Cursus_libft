@@ -12,6 +12,11 @@
 
 #include "libft.h"
 
+/**
+ * 1.null guard
+ * 2.traverse to the last node to apply func(del)
+ * 3.del adress to first node
+ */
 void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*current;

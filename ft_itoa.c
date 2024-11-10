@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	ft_int_len(long n)
+static int	ft_int_len(int n)
 {
 	int		len;
 	long	long_num;
@@ -44,26 +44,32 @@ static void	ft_setstr_from_int(char *str, int n, int len)
 	}
 	else
 		long_num = (long)n;
-	if (long_num == 0)
+	if (long_num == 0)//例外処理：０の場合
 		str[--len] = '0';
-	while (long_num > 0)
+	while (long_num > 0)//メイン処理
 	{
 		str[--len] = (long_num % 10) + '0';
 		long_num /= 10;
 	}
 }
 
+/**
+ * 1.check number of digits
+ * 2.allocate 1. + 1
+ * 3.set null char
+ * 4.set num one by one from backforward
+ */
 char	*ft_itoa(int n)
 {
 	char			*str;
 	int				len;
 
-	len = ft_int_len(n);
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	len = ft_int_len(n);//1
+	str = (char *)malloc(sizeof(char) * (len + 1));//2
 	if (str == NULL)
 		return (NULL);
-	str[len] = '\0';
-	ft_setstr_from_int(str, n, len);
+	str[len] = '\0';//3
+	ft_setstr_from_int(str, n, len);//4
 	return (str);
 }
 

@@ -19,7 +19,11 @@ static int	is_space(int c)
 	else
 		return (0);
 }
-
+/**
+ * 1.skip space(isspace(3))
+ * 2.detect sign once
+ * 3.convert first digit part of str
+ */
 int	ft_atoi(const char *str)
 {
 	int	result_num;

@@ -12,15 +12,23 @@
 
 #include "libft.h"
 
+/**  
+ * 1.preprocess(for args=0)
+ * 	 return unique pointer value
+ * 2.null guard(for overflow)
+ *   detect integer(abstract. not int etc.) overflow
+ * 3.allocate
+ * 4.set the allocated obj to 0
+ */
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*res;
 
 	if (nmemb == 0 || size == 0)
-		return (malloc(0));
+		return ((void *)malloc(0));
 	if (nmemb > SIZE_MAX / size)
 		return (NULL);
-	res = malloc(nmemb * size);
+	res = (void *)malloc(nmemb * size);
 	if (res == NULL)
 		return (NULL);
 	return (ft_bzero(res, nmemb * size));
