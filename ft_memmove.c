@@ -6,7 +6,7 @@
 /*   By: yuuchiya <yuuchiya@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 15:11:54 by yuuchiya          #+#    #+#             */
-/*   Updated: 2024/11/04 12:39:01 by yuuchiya         ###   ########.fr       */
+/*   Updated: 2024/11/12 21:56:02 by yuuchiya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,28 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	char		*p_dest;
-	const char	*p_src;
+	size_t	i;
 
 	if (dest == NULL || src == NULL)
 		return (NULL);
-	p_dest = (unsigned char *)dest;
-	p_src = (const unsigned char *)src;
-	if (p_dest == p_src || n == 0)
-		return (dest);
-	if (p_dest < p_src)
+	i = 0;
+	if (dest < src && n > 0)
 	{
-		while (n > 0)
+		while (i < n)
 		{
-			*p_dest++ = *p_src++;
-			n--;
+			*(unsigned char *)(dest + i) = *(const unsigned char *)(src + i);
+			i++;
 		}
 	}
-	else
+	else if (dest > src && n > 0)
 	{
-		p_dest += n - 1;
-		p_src += n - 1;
-		while (n > 0)
+		i = n - 1;
+		while (i > 0)
 		{
-			*p_dest-- = *p_src--;
-			n--;
+			*(unsigned char *)(dest + i) = *(const unsigned char *)(src + i);
+			i--;
 		}
+		*(unsigned char *)(dest + i) = *(const unsigned char *)(src + i);
 	}
 	return (dest);
 }

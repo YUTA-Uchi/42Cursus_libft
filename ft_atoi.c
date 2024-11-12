@@ -6,7 +6,7 @@
 /*   By: yuuchiya <yuuchiya@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 16:48:10 by yuuchiya          #+#    #+#             */
-/*   Updated: 2024/11/04 12:36:41 by yuuchiya         ###   ########.fr       */
+/*   Updated: 2024/11/12 21:56:09 by yuuchiya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int	is_space(int c)
 	else
 		return (0);
 }
+
 /**
  * 1.skip space(isspace(3))
  * 2.detect sign once

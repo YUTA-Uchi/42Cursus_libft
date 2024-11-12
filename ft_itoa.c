@@ -6,7 +6,7 @@
 /*   By: yuuchiya <yuuchiya@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 14:49:43 by yuuchiya          #+#    #+#             */
-/*   Updated: 2024/11/04 12:37:54 by yuuchiya         ###   ########.fr       */
+/*   Updated: 2024/11/12 21:33:32 by yuuchiya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ static void	ft_setstr_from_int(char *str, int n, int len)
 	}
 	else
 		long_num = (long)n;
-	if (long_num == 0)//例外処理：０の場合
+	if (long_num == 0)
 		str[--len] = '0';
-	while (long_num > 0)//メイン処理
+	while (long_num > 0)
 	{
 		str[--len] = (long_num % 10) + '0';
 		long_num /= 10;
@@ -64,12 +64,12 @@ char	*ft_itoa(int n)
 	char			*str;
 	int				len;
 
-	len = ft_int_len(n);//1
-	str = (char *)malloc(sizeof(char) * (len + 1));//2
+	len = ft_int_len(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 		return (NULL);
-	str[len] = '\0';//3
-	ft_setstr_from_int(str, n, len);//4
+	str[len] = '\0';
+	ft_setstr_from_int(str, n, len);
 	return (str);
 }
 
