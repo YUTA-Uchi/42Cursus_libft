@@ -15,6 +15,7 @@
 char	*ft_strdup(const char *s)
 {
 	char	*ret;
+	char	*ret_for_set;
 	size_t	len;
 
 	if (s == NULL)
@@ -22,9 +23,11 @@ char	*ft_strdup(const char *s)
 	len = ft_strlen(s);
 	if (len == SIZE_MAX)
 		return (NULL);
-	ret = (char *)ft_calloc(len + 1, sizeof(char));
+	ret = (char *)malloc(sizeof(char) * (len + 1));
 	if (ret == NULL)
 		return (NULL);
-	ft_memmove(ret, s, len + 1);
+	ret_for_set = ret;
+	while (*s)
+		*ret_for_set++ = *s++;
 	return (ret);
 }
