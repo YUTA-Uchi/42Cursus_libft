@@ -29,5 +29,6 @@ char	*ft_strdup(const char *s)
 	ret_for_set = ret;
 	while (*s)
 		*ret_for_set++ = *s++;
+	*ret_for_set = '\0';
 	return (ret);
 }
