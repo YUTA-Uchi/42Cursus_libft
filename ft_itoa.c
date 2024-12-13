@@ -72,4 +72,3 @@ char	*ft_itoa(int n)
 	ft_setstr_from_int(str, n, len);
 	return (str);
 }
-
