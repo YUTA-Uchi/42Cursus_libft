@@ -6,7 +6,7 @@
 /*   By: yuuchiya <yuuchiya@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:08:47 by yuuchiya          #+#    #+#             */
-/*   Updated: 2024/10/31 15:12:15 by yuuchiya         ###   ########.fr       */
+/*   Updated: 2025/02/09 16:15:56 by yuuchiya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 typedef struct s_output
 {
-		char	*string;
-		size_t	len_alloc;
-		size_t	length;
+	char	*string;
+	size_t	len_alloc;
+	size_t	length;
 }		t_output;
 
 char		*ft_getchar(int c);
