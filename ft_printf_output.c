@@ -6,7 +6,7 @@
 /*   By: yuuchiya <yuuchiya@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 16:12:21 by yuuchiya          #+#    #+#             */
-/*   Updated: 2024/12/17 19:41:17 by yuuchiya         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:18:39 by yuuchiya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,18 +98,4 @@ int	format_output_string(t_output *output, va_list p_arg, const char *format)
 	}
 	output->string[output->length] = '\0';
 	return (SUCCESS_NUM);
-}
-
-t_output	initialize(const char *format)
-{
-	t_output	output;
-	size_t		format_len;
-
-	format_len = ft_strlen(format);
-	output.string = (char *)malloc(sizeof(char) * (format_len + 1));
-	if (output.string == NULL)
-		return ((t_output){NULL, 0, 0});
-	output.len_alloc = format_len + 1;
-	output.length = 0;
-	return (output);
 }

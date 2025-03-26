@@ -6,7 +6,7 @@
 /*   By: yuuchiya <yuuchiya@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 16:38:33 by yuuchiya          #+#    #+#             */
-/*   Updated: 2024/12/14 21:21:11 by yuuchiya         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:22:43 by yuuchiya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,28 +46,55 @@ char	*expand(va_list p_arg, const char next)
 	return (expanded);
 }
 
+t_output	*initialize(const char *format)
+{
+	t_output	*output;
+	size_t		format_len;
+
+	format_len = ft_strlen(format);
+	output = (t_output *)malloc(sizeof(t_output));
+	if (output == NULL)
+		return (NULL);
+	output->string = (char *)malloc(sizeof(char) * (format_len + 1));
+	if (output->string == NULL)
+		return (free(output), NULL);
+	output->len_alloc = format_len + 1;
+	output->length = 0;
+	return (output);
+}
+
+void	free_output(t_output *output)
+{
+	if (output == NULL)
+		return ;
+	free(output->string);
+	free(output);
+}
+
 int	ft_printf(int fd, const char *format, ...)
 {
 	va_list		p_arg;
-	t_output	output;
+	t_output	*output;
+	size_t		len;
 
 	if (format == NULL || fd < 0)
 		return (ERROR_NUM);
 	va_start(p_arg, format);
 	output = initialize(format);
-	if (output.string == NULL)
+	if (!output)
 		return (va_end(p_arg), ERROR_NUM);
-	if (format_output_string(&output, p_arg, format) == ERROR_NUM)
+	if (format_output_string(output, p_arg, format) == ERROR_NUM)
 	{
-		free(output.string);
+		free_output(output);
 		return (va_end(p_arg), ERROR_NUM);
 	}
-	if (write(fd, output.string, output.length) == ERROR_NUM)
+	if (write(fd, output->string, output->length) == ERROR_NUM)
 	{
-		free(output.string);
+		free_output(output);
 		return (va_end(p_arg), ERROR_NUM);
 	}
-	free(output.string);
+	len = output->length;
+	free_output(output);
 	va_end(p_arg);
-	return (output.length);
+	return (len);
 }

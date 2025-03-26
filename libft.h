@@ -6,7 +6,7 @@
 /*   By: yuuchiya <yuuchiya@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:08:47 by yuuchiya          #+#    #+#             */
-/*   Updated: 2025/02/09 16:15:56 by yuuchiya         ###   ########.fr       */
+/*   Updated: 2025/03/26 15:22:10 by yuuchiya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ size_t		count_digits(unsigned int n, unsigned int num_base);
 char		*ft_utoa_base(unsigned int n, char *base);
 int			format_output_string(t_output *output, va_list p_arg, \
 				const char *format);
-t_output	initialize(const char *format);
+t_output	*initialize(const char *format);
 char		*expand(va_list p_arg, const char next);
 int			ft_printf(int fd, const char *format, ...);
 
